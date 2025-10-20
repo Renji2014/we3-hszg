@@ -1,7 +1,9 @@
 #import "../../../../template/definitions.typ": *
 
-=== Dependency Injection
-#link("https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html")[Ressource zu Dependency Injection @springDependencyInjection]
+=== Dependency Injection <SpringDependencyInjection>
+// #link("https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html")[Ressource zu Dependency Injection @springDependencyInjection]
+
+Für genauere Informationen zu Dependency Injection wird Kapitel #customref(<IoCDependencyInjection>) empfohlen. 
 
 Das Ziel der Dependency Injection ist es, Abhängigkeiten zu entkoppeln. 
 Diese Entkopplung macht den Code lesbarer und das Testen einfacher.
@@ -20,7 +22,7 @@ Bei Spring gibt es zwei Methoden zur Dependency Injection: *Constructor* basiert
   Der Constructor sollte da aber bevorzugt werden. 
 ]
 
-==== Constructor Injection
+==== Contructor Injection - Type 3 IoC <ContructorInjection>
 Der Container ruft einen Constructor mit so vielen Argumenten auf, wie Abhängigkeiten benötigt werden. Jedes Argument representiert dabei eine Abhängigkeit.
 
 ```kotlin
@@ -29,7 +31,7 @@ class ExampleClass(private val dependency: Dependency) {
 }
 ```
 
-==== Setter Injection
+==== Setter Injection - Type 2 IoC <SetterInjection>
 Der Container ruft die Setter Methoden in den erstellen Beans auf, nachdem ein Constructor ohne Argumente aufgerufen wurde.
 
 ```kotlin

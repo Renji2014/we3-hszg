@@ -7,11 +7,14 @@
 #include "basic_concepts/basic_concepts.typ"
 #pagebreak()
 
-#include "technologies/technologies.typ"
+#include "patterns/patterns.typ"
 #pagebreak()
 
-#include "user_stories/user_stories.typ"
-#pagebreak()
+// #include "technologies/technologies.typ"
+// #pagebreak()
+
+// #include "user_stories/user_stories.typ"
+// #pagebreak()
 
 #include "dependency_injection/dependency_injection.typ"
 #pagebreak()

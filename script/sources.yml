@@ -34,6 +34,16 @@ springDependencyInjection:
   publisher: Broadcom
   url: https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html
 
+springSetterDependencyInjection:
+  type: Web
+  title: Setter-based Dependency Injection
+  url: https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html#beans-setter-injection
+
+springContructorDependencyInjection:
+  type: Web
+  title: Constructor-based Dependency Injection
+  url: https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html#beans-constructor-injection
+
 springMethodInjection:
   type: Web
   title: Method Injection
@@ -207,7 +217,7 @@ inversionOfControlMartinFowler:
 inversionOfControlDesigningReusableClasses:
   type: Web
   title: Designing Reusable Classes
-  author: Ralph E. Johnson & Brian Foote
+  author: ["Ralph E. Johnson", "Brian Foote"]
   url: http://www.laputan.org/drc/drc.html
 
 inversionOfControlContainersDependencyInjection:
@@ -215,3 +225,25 @@ inversionOfControlContainersDependencyInjection:
   title: Inversion of Control Containers and the Dependency Injection pattern
   author: Martin Fowler
   url: https://martinfowler.com/articles/injection.html
+
+designPatternsElementsOfReusableSoftare:
+  type: Book
+  title: "Design Patterns: Elements of Reusable Object-Oriented Software"
+  author: ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"]
+  date: 1994
+
+designPatternsSingleton:
+  type: chapter
+  title: "Design Patterns: Elements of Reusable Object-Oriented Software"
+  author: ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"]
+  chapter: "Singleton"
+  date: 1994
+  page-range: 127-134
+
+designPatternsPrototype:
+  type: chapter
+  title: "Design Patterns: Elements of Reusable Object-Oriented Software"
+  author: ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"]
+  chapter: "Prototype"
+  date: 1994
+  page-range: 117-126

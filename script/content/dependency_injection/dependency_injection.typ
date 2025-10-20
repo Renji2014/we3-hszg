@@ -1,6 +1,6 @@
 #import "../../template/definitions.typ": *
 
-= Inversion of Control & Dependency Injection
+= Inversion of Control & Dependency Injection <IoCDependencyInjection>
 Mit der steigenden Komplexität von J2EE und dem Aufkommen von unterschiedlichen Problemen wurde die Entwicklung von IoC Containern vorangetrieben. 
 Diese Container sollen eine Anwendung aus unterschiedlichen Komponenten aus unterschiedlichen Projekten in eine funktionierende Anwendung bauen. 
 Viele der Produkte, die dabei entstanden sind, setzen im Kern auf Dependency Injection.
@@ -59,8 +59,8 @@ Die Grundidee hier ist, dass es ein Assembler Objekt gibt, welches Felder in Kla
 Das kann zum Beispiel die Implementation von einem Interface sein. \
 
 Es gibt dabei drei Möglichkeiten der Dependency Injection: 
-- Contructor Injection, Type 3 IoC
-- Setter Injection, Type 2 IoC
+- Contructor Injection, Type 3 IoC #customref(<ContructorInjection>)
+- Setter Injection, Type 2 IoC #customref(<SetterInjection>)
 - Interface Injection, Type 1 IoC
 
 #let defaultNode(
@@ -82,7 +82,6 @@ Es gibt dabei drei Möglichkeiten der Dependency Injection:
 
 #figure(
   caption: [Abhängigkeiten für Dependency Injection],
-  
 )[
   #diagram(
     node-stroke: 2pt,
@@ -108,4 +107,23 @@ Es gibt dabei drei Möglichkeiten der Dependency Injection:
   )
 ]<dependencyInjectionDependencyDiagram>
 
-In @dependencyInjectionDependencyDiagram benötigt die `MovieLister` Klasse eine Implementation von dem `MovieFinder` Interface. Diese Implementation wird durch den Assembler erstellt, um die Anhängigkeit in `MovieLister` zu erfüllen.
+In @dependencyInjectionDependencyDiagram benötigt die `MovieLister` Klasse eine Implementation von dem `MovieFinder` Interface. 
+Diese Implementation wird durch den Assembler erstellt, um die Anhängigkeit in `MovieLister` zu erfüllen.
+
+// === Spring Contructor Injection - Type 3 IoC <ContructorInjection>
+// Der Container ruft einen Constructor mit so vielen Argumenten auf, wie Abhängigkeiten benötigt werden. Jedes Argument representiert dabei eine Abhängigkeit. @springContructorDependencyInjection
+
+// ```kotlin
+// class ExampleClass(private val dependency: Dependency) {
+
+// }
+// ```
+
+// === Spring Setter Injection - Type 2 IoC <SetterInjection>
+// Der Container ruft die Setter Methoden in den erstellen Beans auf, nachdem ein Constructor ohne Argumente aufgerufen wurde. @springSetterDependencyInjection
+
+// ```kotlin
+// class ExampleClass {
+//   lateinit var dependency: Dependency
+// }
+// ```
