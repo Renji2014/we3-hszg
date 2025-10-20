@@ -13,6 +13,9 @@
 #include "user_stories/user_stories.typ"
 #pagebreak()
 
+#include "dependency_injection/dependency_injection.typ"
+#pagebreak()
+
 #include "backend/backend.typ"
 #pagebreak()
 

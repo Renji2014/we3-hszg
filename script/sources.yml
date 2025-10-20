@@ -197,3 +197,21 @@ springDataJpaIntroduction:
   type: Web
   title: Introduction to Spring Data JPA
   url: https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
+
+inversionOfControlMartinFowler:
+  type: Web
+  title: Inversion of Control
+  author: Martin Fowler
+  url: https://martinfowler.com/bliki/InversionOfControl.html
+
+inversionOfControlDesigningReusableClasses:
+  type: Web
+  title: Designing Reusable Classes
+  author: Ralph E. Johnson & Brian Foote
+  url: http://www.laputan.org/drc/drc.html
+
+inversionOfControlContainersDependencyInjection:
+  type: Web
+  title: Inversion of Control Containers and the Dependency Injection pattern
+  author: Martin Fowler
+  url: https://martinfowler.com/articles/injection.html
