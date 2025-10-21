@@ -16,7 +16,7 @@ Es sollte nur eine Instanz einer Klasse existieren und es sollte von einem gut d
 Wenn eine einzelne Instanz einer Klasse durch Subklassen erweiterbar sein sollte. 
 Dabei sollten Clients in der Lage sein, die erweiterte Instanz nutzen zu können, ohne den Code zu modifizieren.
 
-=== Struktur
+=== Struktur <PatternsSingletonStructure>
 
 #let defaultNode(
   x: int,
@@ -71,9 +71,10 @@ Dabei sollten Clients in der Lage sein, die erweiterte Instanz nutzen zu können
   )
 ] <SingletonStructure>
 
-=== Vorteile
+=== Vorteile <PatternsSingletonPros>
 1. *Kontrollierter Zugriff auf eine einzige Instanz*: Da die Singleton-Klasse ihre eigene Instanz verwaltet, kann sie genau festlegen, wie auf sie zugegriffen wird und wer auf sie zugreifen kann.
 2. *Reduzierter Namespace*: Das Singleton-Pattern stellt eine Verbesserung zu globalen Variablen dar. Der Namespace wird dabei nicht mit globalen Variablen unnötig belegt.
 3. *Erlaubt das Anpassen von Operationen und Repräsentation*: Es erlaubt einfaches Wechseln von erlaubten Klasseninstanzen. Die gleiche Logik, die nur eine Instanz erlaubt, kann einfach auf eine beliebige festgesetzte Anzahl erweitert werden. Nur die Zugriffsfunktion muss sich dabei ändern.
 4. *Höhere Flexibilität als Klassenoperationen*: Statische Klassenoperationen können die gleiche Funktionalität wie ein Singleton enthalten. Allerdings erlaubt diese Methodik nur schwer das Erstellen von mehreren Instanzen. Außerdem sind diese Operationen nicht `virtual`, also können sie nicht überschrieben werden.
+
 @designPatternsSingleton

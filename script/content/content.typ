@@ -19,6 +19,9 @@
 #include "dependency_injection/dependency_injection.typ"
 #pagebreak()
 
+#include "architecture/architecture.typ"
+#pagebreak()
+
 #include "backend/backend.typ"
 #pagebreak()
 

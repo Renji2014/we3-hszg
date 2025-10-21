@@ -247,3 +247,9 @@ designPatternsPrototype:
   chapter: "Prototype"
   date: 1994
   page-range: 117-126
+
+restApiDesignRulebook:
+  type: Book
+  title: REST API Design Rulebook
+  author: Mark Massé
+  date: 2012

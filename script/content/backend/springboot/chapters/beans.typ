@@ -88,6 +88,8 @@ assertEquals(1000, company.getAddress().getNumber());
 
 ==== Scoping 
 ===== Singleton
+Singleton-Beans folgen dem Singleton-Design-Pattern. Theorie zu diesem Pattern ist zu finden in @PatternsSingleton. \
+
 Eine einzelne Instanz einer Bean, die in der gesamten Anwendung geteilt wird @geeksForGeeksSpringDependencyInjection. Diese Instanz wird in einem Cache aus Singleton Beans gespeichert. Jede zukünftige Anfrage und Referenz auf diese Bean gibt dieses Objekt aus dem Cache zurück. Der Singleton Scope ist der standard Scope für eine Bean. Keine spezielle Annotation ist notwendig @springBeanScopes. \
 
 #figure(
@@ -107,6 +109,8 @@ Singleton Beans sollten für stateless Beans eingesetzt werden.
 ]
 
 ===== Prototype
+Prototype-Beans folgen dem Prototype-Design-Pattern. Theorie zu diesem Pattern ist zu finden in @PatternPrototype. \
+
 Eine neue Instanz der Bean wird bei jeder Anfrage erstellet @geeksForGeeksSpringDependencyInjection. Diese Anfrage kann durch Injection in eine andere Bean oder durch eine Anfrage durch ```kt getBean()``` geschehen @springBeanScopes. \
 
 Spring verwaltet, anders als bei anderen Beans, nicht den kompletten Lebenszyklus einer Prototype Bean. Das Löschen einer Prototype Bean muss manuel durch den Client geschehen. Ein eigens definierter Bean Post-Processor kann genutzt werden, damit der Container Ressourcen, die von Prototype Beans gehalten werden, freigibt @springBeanScopes.
