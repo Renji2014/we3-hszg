@@ -1,12 +1,12 @@
 #import "../../../template/definitions.typ": *
 
 == Prototype <PatternPrototype>
-Das Ziel von Prototypes ist es, basierend auf einer existieren Instanz (dem Prototypen), neue Kopien erstellen. \
+Das Ziel von Prototypen ist es, basierend auf einer existierenden Instanz (dem Prototypen) neue Kopien zu erstellen. \
 
-Es sollte genutzt werden, wenn ein System unabhängig davon sein sollte, wie seine Produkte erstellt, zusammengebaut und representiert werden und:
-- Wenn Klassen instantiiert werden sollen, die zur Runtime spezifiert wurden, zum Beispiel durch `dynamic loading`.
-- Um zu vermeiden, dass man eine Hierarchie an Factories baut, die die Klassenhierarchie kopieren.
-- Wenn Klassen nur eine begrenzte Anzahl an State besitzen können. Es könnte da von Vorteil sein, diese Varianten als Prototype zu definieren.
+Es sollte genutzt werden, wenn ein System unabhängig davon sein sollte, wie seine Produkte erstellt, zusammengebaut und repräsentiert werden, und:
+- Wenn Klassen instanziiert werden sollen, die zur Runtime spezifiziert wurden, zum Beispiel durch `dynamic loading`.
+- Um zu vermeiden, dass man eine Hierarchie an Factories baut, die die Klassenhierarchie kopiert.
+- Wenn Klassen nur eine begrenzte Anzahl an State besitzen können. Es könnte da von Vorteil sein, diese Varianten als Prototypen zu definieren.
 
 === Struktur
 #let defaultNode(
@@ -82,5 +82,17 @@ Es sollte genutzt werden, wenn ein System unabhängig davon sein sollte, wie sei
 - *Prototype*: Deklariert ein Interface, damit es kopiert werden kann. 
 - *ConcretePrototype*: Implementiert eine Operation, damit es sich selbst kopieren kann. 
 - *Client*: Erstellt ein neues Objekt, indem der Prototype gefragt wird, ob er eine neue Kopie von sich selbst erstellen kann.
+
+=== Vorteile
+1. *Hinzufügen und Entfernen von Produkten zur Laufzeit*: Durch das Registrieren einer Prototyp-Instanz beim Client kann eine Produktklasse in das System integriert werden. Das kann, anders als bei anderen Patterns, zur Laufzeit geschehen.
+2. *Spezifizierung von neuen Objekten durch das Ändern von Werten*: Dynamische Systeme erlauben das Definieren von neuem Verhalten durch Objektkomposition, zum Beispiel durch das Anpassen von Variablen. Neue Arten von Objekten werden somit durch das Instanziieren von existierenden Klassen als Prototypen von Client-Objekten erzeugt. Der Client kann somit neue Möglichkeiten erlangen, indem er Aufgaben an Prototypen auslagert.
+3. *Spezifizierung von neuen Objekten durch das Ändern von Struktur*: Bauen von Objekten durch Teile und Unterteile. Komplexe Strukturen können so vom Nutzer erzeugt werden. Das Prototype-Pattern unterstützt solche Ansätze durch `Deep Copy`, die im Parent-Teil implementiert sein muss.
+4. *Reduziertes Subclassing*: Anders als Factories erlaubt das Prototype-Pattern das Erstellen von neuen Objekten ohne spezifische Factory-Methoden. Dadurch wird keine `Creator` Klassenhierarchie benötigt.
+5. *Dynamische Konfiguration einer Anwendung durch Klassen*: Wenn die Umgebung es erlaubt, können dynamisch geladene Klassen durch das Prototype-Pattern instanziiert werden. Der Constructor der Klasse kann nicht in dieser Umgebung genutzt werden. Deshalb wird eine Instanz automatisch beim Laden erstellt und mit einem Prototype-Manager registriert. Über den Prototype-Manager können diese Klassen dann abgefragt werden.
+
+=== Nachteile
+Jede Subklasse eines Prototypen muss die Clone-Operation besitzen. 
+Das kann in manchen Fällen schwierig werden. 
+Zum Beispiel, wenn die Klasse bereits existiert oder wenn die Zielklasse andere Objekte enthält, die sich nicht zum Kopieren eignen oder Zirkelverweise besitzen.
 
 @designPatternsPrototype

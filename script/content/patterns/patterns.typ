@@ -1,6 +1,6 @@
 #import "../../template/definitions.typ": *
 
-= Patterns <Patterns>
+= Design Patterns <DesignPatterns>
 
 #include "content/singleton.typ"
 #pagebreak()
