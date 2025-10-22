@@ -201,12 +201,7 @@ springOneToOne:
 springManyToMany:
   type: Web
   title: Many-To-Many Relationship in JPA
-  url: https://www.baeldung.com/jpa-many-to-many
-
-springDataJpaIntroduction:
-  type: Web
-  title: Introduction to Spring Data JPA
-  url: https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
+  url: https://www.baeldung.com/jpa-many-to-Many
 
 inversionOfControlMartinFowler:
   type: Web
@@ -253,3 +248,34 @@ restApiDesignRulebook:
   title: REST API Design Rulebook
   author: Mark Massé
   date: 2012
+
+springDataJpaIntroductionBaeldung:
+  type: Web
+  title: Introduction to Spring Data JPA
+  author: Eugen Paraschiv
+  url: https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa
+
+springDataOverviewDocs:
+  type: Web
+  title: Spring Data
+  url: https://spring.io/projects/spring-data#overview
+
+springDataJpaOverview:
+  type: Web
+  title: Spring Data JPA
+  url: https://spring.io/projects/spring-data-jpa
+
+springDataJpaGettingStarted:
+  type: Web
+  title: Getting Started
+  url: https://docs.spring.io/spring-data/jpa/reference/jpa/getting-started.html
+
+springDataJpaCoreConcepts:
+  type: Web
+  title: Core Concepts
+  url: https://docs.spring.io/spring-data/jpa/reference/repositories/core-concepts.html
+
+springDataJpaDefiningQueryMethods:
+  type: Web
+  title: Defining Query Methods
+  url: https://docs.spring.io/spring-data/jpa/reference/repositories/query-methods-details.html

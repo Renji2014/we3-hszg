@@ -53,4 +53,4 @@ fun retrieveUserByName(
 ): User
 ```
 
-@springDataJpaIntroduction
+@springDataJpaIntroductionBaeldung

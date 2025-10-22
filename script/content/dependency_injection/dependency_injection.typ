@@ -109,21 +109,3 @@ Es gibt dabei drei Möglichkeiten der Dependency Injection:
 
 In @dependencyInjectionDependencyDiagram benötigt die `MovieLister` Klasse eine Implementation von dem `MovieFinder` Interface. 
 Diese Implementation wird durch den Assembler erstellt, um die Anhängigkeit in `MovieLister` zu erfüllen.
-
-// === Spring Contructor Injection - Type 3 IoC <ContructorInjection>
-// Der Container ruft einen Constructor mit so vielen Argumenten auf, wie Abhängigkeiten benötigt werden. Jedes Argument representiert dabei eine Abhängigkeit. @springContructorDependencyInjection
-
-// ```kotlin
-// class ExampleClass(private val dependency: Dependency) {
-
-// }
-// ```
-
-// === Spring Setter Injection - Type 2 IoC <SetterInjection>
-// Der Container ruft die Setter Methoden in den erstellen Beans auf, nachdem ein Constructor ohne Argumente aufgerufen wurde. @springSetterDependencyInjection
-
-// ```kotlin
-// class ExampleClass {
-//   lateinit var dependency: Dependency
-// }
-// ```

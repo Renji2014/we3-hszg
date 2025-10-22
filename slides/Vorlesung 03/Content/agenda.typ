@@ -3,7 +3,10 @@
 #slide[
   = Agenda
   #set align(horizon)
-  *Warum funktioniert Spring eigentlich?*
+  *Wie & Warum funktioniert Spring eigentlich?*
+  - Inversion of Control
   - Dependency Injection
+  - Spring Beans
+  - Spring Data
   - HTTP Methoden
 ]
