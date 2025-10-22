@@ -2,6 +2,8 @@
 
 #include "agenda.typ"
 
+#include "Chapters/http.typ"
+
 #include "Chapters/inversion_of_control.typ"
 
 #include "Chapters/dependency_injection.typ"

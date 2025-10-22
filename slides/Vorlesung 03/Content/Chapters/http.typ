@@ -1,0 +1,165 @@
+#import "../../Template/definitions.typ": *
+
+#slide[
+  #toolbox.register-section([HTTP])
+  = HTTP Request
+  #set align(horizon)
+  *Bestandteile*
+  - Ein *HTTP Verb*, dass die Art der Operation definiert
+  - Einen *Header*, der Informationen über die Request enthält
+  - Einen *Pfad* zu einer Ressource
+  - Einen optionalen *Body*, der weitere Daten enthält
+]
+
+#slide[
+  = HTTP Request
+  == Header
+  #set align(horizon)
+  - `accept` Feld: Welche Ressource nimmt der Client an
+  - Art der Ressource über MIME Types
+  *MIME Type*:
+  ```
+    type/subtype;parameter=value
+  ```
+  - `parameter` ist optional
+  - *Beispiele*: `image/png`, `audio/wav`, `application/json`
+]
+
+#slide[
+  = HTTP Request
+  == Pfad
+  #set align(horizon)
+  - Definiert, auf welcher Ressource die Operation ausgeführt werden soll
+  - Erster Teil sollte die Pluralform der Ressource sein
+  *Beispiel*: `store.com/customers/223/orders/12`
+  #guideline[Lesbarkeit der Pfade][
+    Gute Lesbarkeit der Pfade in der API, auch wenn man nicht mit der API vertraut ist
+  ]
+]
+
+#slide[
+  = HTTP Response
+  #set align(horizon)
+  - Datentyp angeben wenn Daten zurückgegeben werden sollen
+  - Content Type im Header wie bei Request
+  - Status Code anhängen für Informationen über Ausgang der Request
+]
+
+#slide[
+  = HTTP Methoden
+  #set align(horizon)
+  - HTTP definiert Verben, die Ziele von Request genauer beschreiben
+  #table(
+    columns: (1fr, 1fr),
+    stroke: white,
+    inset: 10pt,
+    [*Häufige Verben:*],
+    [*Weitere Verben:*],
+    [GET],[HEAD],
+    [POST],[CONNECT],
+    [PUT],[OPTIONS],
+    [DELETE],[TRACE],
+    [],[PATCH],
+  )
+]
+
+#slide[
+  = HTTP Methoden
+  == GET
+  #set align(horizon)
+  - Stellt Anfrage an Server eine Ressource zu transferieren
+  - Sollten immer gleiche Ergebnisse bei gleichen Parametern erziehlen
+  - Content sollte nie mit einer GET Request erstellt werden
+  - Caching ist möglich
+  #notice[Informationen in der UI][
+    Es ist zu beachten, dass wenn Ressourcen nur über URIs angefragt werden, potentiell sicherheitskritische Informationen in dieser URI landen können. 
+    Wenn es nicht möglich ist, diese Informationen in weniger kritische zu transformieren wird das Nutzen einer POST Request mit den Daten im Request Content empfohlen.
+  ]
+]
+
+#slide[
+  = HTTP Methoden
+  == POST
+  #set align(horizon)
+  - Wird genutzt um transferierte Daten nach Server Sezifikation zu verarbeiten
+  - Beispiel:
+    - Daten in Inputfeldern übergeben
+    - Nachrichten Posten (Foren, Social Media usw.)
+    - Erstellen von neuen Ressourcen
+    - Daten an vorhandene Ressourcen anhängen
+  - Server kommuniziert mit Status Codes das Ergebnis der POST Request
+  - Bei Erfolg: 206 (Partial Content)
+  - Bei erfolgreichem Erstellen einer neuen Ressource: 201 mit Pfad zur neuen Ressource
+]
+
+#slide[
+  = HTTP Methoden
+  == PUT
+  #set align(horizon)
+  - Editieren von vorhandenen Ressource oder Erstellung von neuen Ressourcen
+  - Anfrage basiert auf mitgeschickten Daten
+  - Wenn Ressource nicht vorhanden ist wird sie neu erstellt
+  - Status Code 201 nach Erstellen neuer Ressource
+  - Wenn kein neuer Eintrag erstellt wurde: Status Code 200 oder 204
+  - Server sollte Daten in der PUT Request validieren
+  - Wenn Fehler in den Daten: Selbst Versuchen Daten in passendes Format zu bringen oder 409/415 zurückgeben
+]
+
+#slide[
+  = HTTP Methoden
+  == DELETE
+  #set align(horizon)
+  - Request an den Server Ressource zu löschen
+  - Entweder Entfernen von Referenzen oder komplettes Löschen der Ressource
+  - DELETE sollte nur bei Ressourcen erlaubt sein, die definierte Löschvorgänge besitzen 
+  - Bei Erfolg einer der folgenden Codes:
+    - *202 (Accepted)* wenn das Löschen wahrscheinlich erfolgreich sein wird, aber noch nicht durchgeführt wurde
+    - *204 (No Content)* Löschen wurde ausgeführt und keine weiteren Informationen sind nötig
+    - *200 (OK)* Löschen war erfolgreich und die Response enthält noch Informationen über den aktuellen Status
+]
+
+#slide[
+  = HTTP Methoden
+  == idempotente Methoden
+  #set align(horizon)
+  - Mutiple Ausführung hat den gleichen Effekt auf dem Server
+  - Wichtig bei automatischen Anfragen (z.B.: Wiederholung bei Fehlschlag)
+  - PUT und DELETE sind automatisch idempotent
+  - _safe request methods_ sind idempotent
+  - Server kann trotzdem Nebeneffekte einfügen (z.B.: Logs)
+  - Nebeneffekte dürfen Ergebnis nicht verändern 
+  - Nicht idempotente Methoden sollten nicht automatisch wiederholt werden (Außer Implementation ist idempotent)
+]
+
+#slide[
+  = HTTP Status Codes
+  #set align(horizon)
+  - Status Code gehört zu jeder HTTP Response
+  - Zwischen 100 und 599
+  - Erste Ziffer gibt Klasse der Response an
+    - *1xx (Informational)*: Die Request wurde erhalten und wird verarbeitet
+    - *2xx (Successful)*: Die Request wurde erfolgreich erhalten, verstanden und akzeptiert
+    - *3xx (Rediraction)*: Es müssen weitere Schritte durchgeführt werden, damit die Request verarbeitet werden kann
+    - *4xx (Client Error)*: Die Request enthält falschen Syntax oder kann nicht erfüllt werden
+    - *5xx (Server Error)*: Der Server konnte eine eigentlich valide Request nicht erfüllen
+]
+
+#slide[
+  = HTTP Status Codes
+  #set align(horizon + center)
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    table.header(
+      [*Status Code*], [*Bedeutung*]
+    ),
+    [200 (OK)], [Standard Antwort Erfolg],
+    [201 (CREATED)], [Standard Antwort für neue Ressource],
+    [204 (NO CONTENT)], [Standard Antwort für Erfolg ohne Daten im Response Body],
+    [400 (BAD REQUEST)], [Die Request konnte nicht verarbeitet werden],
+    [403 (FORBIDDEN)], [Der Client hat keine Rechte auf diese Ressource zuzugreifen],
+    [404 (NOT FOUND)], [Die Gewünschte Ressource konnte nicht gefunden werden],
+    [500 (INTERNAL SERVER ERROR)], [Die generische Antwort für einen unerwarteten Fehler],
+  )
+]
