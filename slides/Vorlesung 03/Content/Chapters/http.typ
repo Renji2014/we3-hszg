@@ -2,6 +2,37 @@
 
 #slide[
   #toolbox.register-section([HTTP])
+  =
+  #set align(horizon + center)
+  #let defaultNode(
+    x: int,
+    y: int,
+    shape: fletcher.shapes,
+    name: label,
+    content
+  ) = {
+    node(
+      (x, y),
+      name: name,
+      fill: gray.lighten(90%),
+      stroke: black,
+      shape: shape,
+    )[
+      #content
+    ]
+  }
+
+  #diagram(
+    node-stroke: 1pt,
+    node-inset: 10pt,
+    defaultNode(x: 5, y: 0, shape: rect, name: <Frontend>)[Frontend],
+    defaultNode(x: 0, y: 0, shape: rect, name: <Backend>)[Backend],
+    edge(<Frontend>, "-|>", <Backend>, bend: -30deg)[1. HTTP Request],
+    edge(<Backend>, "-|>", <Frontend>, bend: -30deg)[2. HTTP Response],
+  )
+]
+
+#slide[
   = HTTP Request
   #set align(horizon)
   *Bestandteile*
@@ -43,6 +74,24 @@
   - Datentyp angeben wenn Daten zurückgegeben werden sollen
   - Content Type im Header wie bei Request
   - Status Code anhängen für Informationen über Ausgang der Request
+]
+
+#slide[
+  =
+  #set align(horizon + center)
+  ```kotlin
+    @GetMapping
+    fun getEntities() {}
+
+    @PostMapping
+    fun createEntity() {}
+
+    @PutMapping
+    fun updateEntity() {}
+
+    @DeleteMapping
+    fun deleteEntity() {}
+  ```
 ]
 
 #slide[
