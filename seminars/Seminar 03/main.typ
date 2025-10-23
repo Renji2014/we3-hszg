@@ -1,5 +1,7 @@
 = Seminaraufgaben 24.10.2025
 
+Letzte Woche beenden: *PUT* und *DELETE* für Todo Items
+
 Das Todo Backend wird um einen User erweitert, dem die Items gehören.
 
 Der User besitzt folgende Informationen:
