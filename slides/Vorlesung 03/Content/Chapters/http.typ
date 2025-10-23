@@ -99,9 +99,7 @@
   ]
 ]
 
-#slide[
-  = HTTP Request
-  #set align(horizon + center)
+#let httpRequestExample = {
   ```
     POST http://localhost:8080/todos HTTP/1.1
     accept: */*
@@ -114,6 +112,12 @@
       "created": "2025-10-23T15:06:08.738Z",
     }
   ```
+}
+
+#slide[
+  = HTTP Request
+  #set align(horizon + center)
+  #httpRequestExample
 ]
 
 #slide[
@@ -148,18 +152,7 @@
       ),
     )
   )
-  ```
-    POST http://localhost:8080/todos HTTP/1.1
-    accept: */*
-    Content-Type: application/json
-
-    {
-      "name": "todoItemName",
-      "description": "newDescription",
-      "done": true,
-      "created": "2025-10-23T15:06:08.738Z",
-    }
-  ```
+  #httpRequestExample
 ]
 
 #slide[
@@ -201,25 +194,28 @@
   - Status Code anhängen für Informationen über Ausgang der Request
 ]
 
+#let httpResponseExample = {
+  ```
+    HTTP/1.1 200 OK
+    connection: keep-alive
+    content-type: application/json
+    date: Thu,23 Oct 2025 16:45:09 GMT
+    keep-alive: timeout=60
+    transfer-encoding: chunked
+
+    [
+      {
+        "id": 0,
+        // Mehr Daten
+      }
+    ]
+  ```
+}
+
 #slide[
   = HTTP Response
   #set align(horizon + center)
-  ```
-    HTTP/1.1 200 OK
-    ETag: "f60e0978bc9c458989815b18ddad6d75"
-    Last-Modified: Thu, 10 Jan 2013 01:45:22 GMT
-    Content-Type: application/vnd.collection+json
-
-    {
-      "collection": {
-        "version" : "1.0",
-        "href" : "http://www.youtypeitwepostit.com/api/",
-        "items": [
-          // more data
-        ]
-      }
-    }
-  ```
+  #httpResponseExample
 ]
 
 #slide[
@@ -228,7 +224,7 @@
   #codly(
     highlights: (
       (line: 1, start: 12, end: 17, fill: red),
-      (line: 4, start: 17, end: none, fill: green),
+      (line: 3, start: 17, end: none, fill: green),
     ),
     annotations: (
       (
@@ -239,14 +235,14 @@
         )
       ),
       (
-        start: 2, end: 4,
+        start: 2, end: 6,
         content: block(
           width: 2em,
           rotate(-90deg, reflow: true, align(center)[Header])
         )
       ),
       (
-        start: 5, end: 12,
+        start: 7, end: 13,
         content: block(
           width: 2em,
           rotate(-90deg, reflow: true, align(center)[JSON Body])
@@ -254,20 +250,7 @@
       ),
     )
   )
-  ```
-    HTTP/1.1 200 OK
-    ETag: "f60e0978bc9c458989815b18ddad6d75"
-    Last-Modified: Thu, 10 Jan 2013 01:45:22 GMT
-    Content-Type: application/vnd.collection+json
-
-    {
-      "collection": {
-        "version" : "1.0",
-        "href" : "http://www.youtypeitwepostit.com/api/",
-        "items": [ // more data ]
-      }
-    }
-  ```
+  #httpResponseExample
 ]
 
 #slide[
