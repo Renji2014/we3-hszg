@@ -7,5 +7,6 @@ data class UpdateTodoItemDto(
     val description: String?,
     val done: Boolean?,
     val created: Date?,
-    val shouldBeDoneBy: Date?
+    val shouldBeDoneBy: Date?,
+    val userId: Long
 )

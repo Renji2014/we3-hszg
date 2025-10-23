@@ -6,6 +6,8 @@ import com.hszg.todolist.todoitem.dtos.UpdateTodoItemDto
 import com.hszg.todolist.todoitem.mapper.fromCreateTodoItemDto
 import com.hszg.todolist.todoitem.mapper.fromEditTodoItemDto
 import com.hszg.todolist.todoitem.mapper.toGetTodoItemDto
+import com.hszg.todolist.users.UserRepository
+import com.hszg.todolist.users.UserService
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -13,11 +15,12 @@ import java.util.Date
 
 @Service
 class TodoItemService (
-    val todoItemRepository: TodoItemRepository
+    val todoItemRepository: TodoItemRepository,
+    val userService: UserService
 ) {
     fun getTodoItemById(
         id: Long
-    ): TodoItemEntity {
+    ): TodoItem {
         return todoItemRepository.findById(id).orElseThrow {
             EntityNotFoundException(
                 "Todo item with id $id could not be found."
@@ -41,23 +44,28 @@ class TodoItemService (
         }
     }
 
+    @Transactional
     fun createTodoItem(
         createTodoItemDto: CreateTodoItemDto
     ): GetTodoItemDto {
-        val newTodoItem = fromCreateTodoItemDto(createTodoItemDto)
+        val targetUser = userService.getUserById(createTodoItemDto.userId)
+        val newTodoItem = fromCreateTodoItemDto(createTodoItemDto, targetUser)
         val savedTodoItem = todoItemRepository.save(newTodoItem)
         return toGetTodoItemDto(savedTodoItem)
     }
 
+    @Transactional
     fun updateTodoItem(
         id: Long,
         updateTodoItemDto: UpdateTodoItemDto
     ): GetTodoItemDto {
         return todoItemRepository.findById(id).map {
+            val targetUser = userService.getUserById(id)
             val save = todoItemRepository.save(
                 fromEditTodoItemDto(
                     it,
-                    updateTodoItemDto
+                    updateTodoItemDto,
+                    targetUser
                 )
             )
             toGetTodoItemDto(save)

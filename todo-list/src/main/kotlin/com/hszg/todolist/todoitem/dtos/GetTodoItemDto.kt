@@ -1,5 +1,6 @@
 package com.hszg.todolist.todoitem.dtos
 
+import com.hszg.todolist.users.User
 import java.util.Date
 
 data class GetTodoItemDto(
@@ -8,5 +9,6 @@ data class GetTodoItemDto(
     val description: String,
     val done: Boolean,
     val created: Date,
-    val shouldBeDoneBy: Date
+    val shouldBeDoneBy: Date,
+    val userId: Long
 )

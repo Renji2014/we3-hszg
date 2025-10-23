@@ -1,16 +1,20 @@
 package com.hszg.todolist.todoitem
 
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.hszg.todolist.users.User
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 import java.util.Date
 
 @Entity(name = "todoitem")
 @Table(name = "todoitem")
-class TodoItemEntity (
+class TodoItem (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long? = null,
@@ -23,5 +27,9 @@ class TodoItemEntity (
     @Column(name = "created", nullable = false)
     val created: Date,
     @Column(name = "shoudBeDoneBy", nullable = false)
-    val shouldBeDoneBy: Date
+    val shouldBeDoneBy: Date,
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "user_id")
+    val user: User = User()
 )

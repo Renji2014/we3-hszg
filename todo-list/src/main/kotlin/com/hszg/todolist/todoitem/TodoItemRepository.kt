@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository
 import java.util.Date
 
 @Repository
-interface TodoItemRepository : JpaRepository<TodoItemEntity, Long> {
+interface TodoItemRepository : JpaRepository<TodoItem, Long> {
 
     @Query(
         "SELECT t FROM todoitem t WHERE " +
@@ -24,6 +24,6 @@ interface TodoItemRepository : JpaRepository<TodoItemEntity, Long> {
         done: Boolean?,
         created: Date?,
         shouldBeDoneBy: Date?
-    ): MutableList<TodoItemEntity>
+    ): MutableList<TodoItem>
 
 }
