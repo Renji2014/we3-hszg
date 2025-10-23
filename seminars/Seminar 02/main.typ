@@ -1,4 +1,4 @@
-= Seminaraufgaben 14.10.2025
+= Seminaraufgaben 17.10.2025
 
 Wir erstellen eine Beispiel Todo App. 
 Unser Backend soll Daten über Todo Einträge speichern. \
