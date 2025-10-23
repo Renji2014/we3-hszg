@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1033.4766"
+   height="348.68604"
+   viewBox="0 0 1033.4766 348.68604"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:export-bgcolor="#ffffff00">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="1033.4766"
+       height="348.68604"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-443.2617,-365.65697)">
+    <rect
+       style="fill:#6b1828;fill-opacity:1;stroke-width:5"
+       id="rect1"
+       width="1033.4766"
+       height="348.68604"
+       x="443.26172"
+       y="365.65698" />
+    <g
+       id="g2"
+       transform="translate(7.03334e-6,-15.957051)">
+      <g
+         id="g3"
+         transform="translate(0,-8.0761797)">
+        <g
+           id="g4"
+           transform="translate(9.1307195e-5,-5.7519246)">
+          <text
+             xml:space="preserve"
+             style="font-size:169.923px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:31.8606"
+             x="764.65723"
+             y="416.52209"
+             id="text1"
+             transform="scale(0.65168755,1.5344777)"><tspan
+               sodipodi:role="line"
+               id="tspan1"
+               x="764.65723"
+               y="416.52209"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif Bold';fill:#ffffff;fill-opacity:1;stroke-width:31.8606">LEERANSTALT</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:52.7531px;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:9.89121"
+             x="414.91208"
+             y="824.43567"
+             id="text2"
+             transform="scale(1.2049279,0.82992518)"><tspan
+               sodipodi:role="line"
+               id="tspan2"
+               x="414.91208"
+               y="824.43567"
+               style="stroke-width:9.89121">Christopher-Manuel Hilgner</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

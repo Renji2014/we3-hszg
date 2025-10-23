@@ -29,7 +29,63 @@ Dieses Format erlaubt einfache Lesbarkeit des Pfades, auch wenn man selbst nicht
 === Response <http_response>
 Wenn der Server mit einer Menge an Daten antworten will muss er einen Content Type in den Header seiner Antwort packen. 
 Auch hier werden wieder MIME Types genutzt. \
-Dazu wird auch noch ein Status Code angehangen.
+Dazu wird auch noch ein Status Code angehangen. \
+
+*Beispiel für eine Response*:\
+```
+HTTP/1.1 200 OK
+ETag: "f60e0978bc9c458989815b18ddad6d75"
+Last-Modified: Thu, 10 Jan 2013 01:45:22 GMT
+Content-Type: application/vnd.collection+json
+
+{ "collection":
+  {
+    "version" : "1.0",
+    "href" : "http://www.youtypeitwepostit.com/api/",
+    "items" : [
+      { "href" : "http://www.youtypeitwepostit.com/api/messages/21818525390699506",
+        "data": [
+          { "name": "text", "value": "Test." },
+          { "name": "date_posted", "value": "2013-04-22T05:33:58.930Z" }
+        ],
+        "links": []
+      },
+      { "href" : "http://www.youtypeitwepostit.com/api/messages/3689331521745771",
+        "data": [
+          { "name": "text", "value": "Hello." },
+          { "name": "date_posted", "value": "2013-04-20T12:55:59.685Z" }
+        ],
+        "links": []
+      },
+      { "href" : "http://www.youtypeitwepostit.com/api/messages/7534227794967592",
+        "data": [
+          { "name": "text", "value": "Pizza?" },
+          { "name": "date_posted", "value": "2013-04-18T03:22:27.485Z" }
+        ],
+        "links": []
+      }
+    ]
+  },
+  "template": {
+    "data": [
+      {"prompt": "Text of message", "name": "text", "value":""}
+    ]
+  }
+}
+```
+
+Jede HTTP Response kann in drei Teile aufgeteilt werden: \
+
+_Der Status Code_: 
+Der Response Code beschreibt das Ergebnis der Request. 
+
+_Der Body_:
+Inhalt der Response in einem definierten Dokumenten Format. 
+Das Format wird im Header festgelegt.
+
+_Die Header der Response_:
+Der Header enthält eine Abfolge von Key-Value Paaren, die die Response und ihren Body beschreiben. 
+
 
 === Methoden <http_methods>
 HTTP definiert eine Menge an Verben, damit das Ziel einer Request einfacher zu erkennen ist und auch direkt klar ist, was das zu erwartende Ergebnis der Anfrage ist.

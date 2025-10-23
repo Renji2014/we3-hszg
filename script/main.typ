@@ -22,7 +22,7 @@
 #pagebreak()
 
 #set page(footer: context [
-  Hochschule Zittau/Görlitz
+  Web Engineering
   #h(1fr)
   #counter(page).display(
     "1",

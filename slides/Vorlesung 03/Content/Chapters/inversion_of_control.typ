@@ -2,6 +2,13 @@
 
 #slide[
   #toolbox.register-section([Inversion of Control])
+  =
+  #set align(horizon + center)
+  #image("../../Images/logos--spring.svg", fit: "contain")
+]
+
+#slide[
+  
   = Inversion of Conrol
   #set align(horizon)
   - Kernpunkt vieler Frameworks, die das Hinzufügen und Erweitern von Funktionalitäten erlauben

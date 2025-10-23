@@ -279,3 +279,10 @@ springDataJpaDefiningQueryMethods:
   type: Web
   title: Defining Query Methods
   url: https://docs.spring.io/spring-data/jpa/reference/repositories/query-methods-details.html
+
+oreillyRestfulWebAPIs:
+  type: Book
+  title: RESTful Web APIs
+  publisher: "O’Reilly Media, Inc."
+  author: ["Leonard Richardson", "Mike Amundsen"]
+  date: 2013
