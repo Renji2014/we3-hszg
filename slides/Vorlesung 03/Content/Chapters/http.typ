@@ -33,6 +33,37 @@
 ]
 
 #slide[
+  =
+  #set align(horizon + center)
+  #let defaultNode(
+    x: int,
+    y: int,
+    shape: fletcher.shapes,
+    name: label,
+    content
+  ) = {
+    node(
+      (x, y),
+      name: name,
+      fill: gray.lighten(90%),
+      stroke: black,
+      shape: shape,
+    )[
+      #content
+    ]
+  }
+
+  #diagram(
+    node-stroke: 1pt,
+    node-inset: 10pt,
+    defaultNode(x: 5, y: 0, shape: rect, name: <Frontend>)[Frontend],
+    defaultNode(x: 0, y: 0, shape: rect, name: <Backend>)[Backend],
+    edge(<Frontend>, "-|>", <Backend>, bend: -30deg, stroke: red)[#text(fill: red, weight: "bold")[1. HTTP Request]],
+    edge(<Backend>, "-|>", <Frontend>, bend: -30deg)[2. HTTP Response],
+  )
+]
+
+#slide[
   = HTTP Request
   #set align(horizon)
   *Bestandteile*
@@ -69,11 +100,174 @@
 ]
 
 #slide[
+  = HTTP Request
+  #set align(horizon + center)
+  ```
+    POST http://localhost:8080/todos HTTP/1.1
+    accept: */*
+    Content-Type: application/json
+
+    {
+      "name": "todoItemName",
+      "description": "newDescription",
+      "done": true,
+      "created": "2025-10-23T15:06:08.738Z",
+    }
+  ```
+]
+
+#slide[
+  = HTTP Request
+  #set align(horizon + center)
+  #codly(
+    highlights: (
+      (line: 1, start: 3, end: 6, fill: red),
+      (line: 3, start: 17, end: none, fill: green),
+    ),
+    annotations: (
+      (
+        start: 1, end: 1,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[Request Line])
+        )
+      ),
+      (
+        start: 2, end: 3,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[Headers])
+        )
+      ),
+      (
+        start: 4, end: 10,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[JSON Body])
+        )
+      ),
+    )
+  )
+  ```
+    POST http://localhost:8080/todos HTTP/1.1
+    accept: */*
+    Content-Type: application/json
+
+    {
+      "name": "todoItemName",
+      "description": "newDescription",
+      "done": true,
+      "created": "2025-10-23T15:06:08.738Z",
+    }
+  ```
+]
+
+#slide[
+  =
+  #set align(horizon + center)
+  #let defaultNode(
+    x: int,
+    y: int,
+    shape: fletcher.shapes,
+    name: label,
+    content
+  ) = {
+    node(
+      (x, y),
+      name: name,
+      fill: gray.lighten(90%),
+      stroke: black,
+      shape: shape,
+    )[
+      #content
+    ]
+  }
+
+  #diagram(
+    node-stroke: 1pt,
+    node-inset: 10pt,
+    defaultNode(x: 5, y: 0, shape: rect, name: <Frontend>)[Frontend],
+    defaultNode(x: 0, y: 0, shape: rect, name: <Backend>)[Backend],
+    edge(<Frontend>, "-|>", <Backend>, bend: -30deg)[1. HTTP Request],
+    edge(<Backend>, "-|>", <Frontend>, bend: -30deg, stroke: red)[#text(fill: red, weight: "bold")[2. HTTP Response]],
+  )
+]
+
+#slide[
   = HTTP Response
   #set align(horizon)
   - Datentyp angeben wenn Daten zurückgegeben werden sollen
   - Content Type im Header wie bei Request
   - Status Code anhängen für Informationen über Ausgang der Request
+]
+
+#slide[
+  = HTTP Response
+  #set align(horizon + center)
+  ```
+    HTTP/1.1 200 OK
+    ETag: "f60e0978bc9c458989815b18ddad6d75"
+    Last-Modified: Thu, 10 Jan 2013 01:45:22 GMT
+    Content-Type: application/vnd.collection+json
+
+    {
+      "collection": {
+        "version" : "1.0",
+        "href" : "http://www.youtypeitwepostit.com/api/",
+        "items": [
+          // more data
+        ]
+      }
+    }
+  ```
+]
+
+#slide[
+  = HTTP Response
+  #set align(horizon + center)
+  #codly(
+    highlights: (
+      (line: 1, start: 12, end: 17, fill: red),
+      (line: 4, start: 17, end: none, fill: green),
+    ),
+    annotations: (
+      (
+        start: 1, end: 1,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[Status Code])
+        )
+      ),
+      (
+        start: 2, end: 4,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[Header])
+        )
+      ),
+      (
+        start: 5, end: 12,
+        content: block(
+          width: 2em,
+          rotate(-90deg, reflow: true, align(center)[JSON Body])
+        )
+      ),
+    )
+  )
+  ```
+    HTTP/1.1 200 OK
+    ETag: "f60e0978bc9c458989815b18ddad6d75"
+    Last-Modified: Thu, 10 Jan 2013 01:45:22 GMT
+    Content-Type: application/vnd.collection+json
+
+    {
+      "collection": {
+        "version" : "1.0",
+        "href" : "http://www.youtypeitwepostit.com/api/",
+        "items": [ // more data ]
+      }
+    }
+  ```
 ]
 
 #slide[
