@@ -1,1 +1,1 @@
-# Resources for WE2
+# Resources for WE3
