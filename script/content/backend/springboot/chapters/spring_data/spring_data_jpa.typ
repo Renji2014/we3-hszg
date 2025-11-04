@@ -63,3 +63,6 @@ Die hier definierten Methoden decken alle CRUD Operationen ab. \
 
 ==== Query Methoden Definieren
 @springDataJpaDefiningQueryMethods
+
+==== Probleme in Anwendungsfällen und ihre Lösung
+@jpaWithSpringBoot

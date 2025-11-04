@@ -286,3 +286,8 @@ oreillyRestfulWebAPIs:
   publisher: "O’Reilly Media, Inc."
   author: ["Leonard Richardson", "Mike Amundsen"]
   date: 2013
+
+jpaWithSpringBoot:
+  type: Web
+  title: "JPA with Spring Boot: A Comprehensive Guide with Examples"
+  url: https://medium.com/@bshiramagond/jpa-with-spring-boot-a-comprehensive-guide-with-examples-e07da6f3d385
