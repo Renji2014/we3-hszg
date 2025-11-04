@@ -17,6 +17,7 @@
 // ]
 
 #slide[
+  #toolbox.register-section([Request])
   =
   #set align(horizon + center)
   #text(size: 30pt, weight: "bold")[
@@ -269,6 +270,7 @@
 ]
 
 #slide[
+  #toolbox.register-section([Controller])
   =
   #set align(horizon + center)
   #text(size: 30pt, weight: "bold")[
@@ -434,6 +436,7 @@
 ]
 
 #slide[
+  #toolbox.register-section([Service])
   = Service
   #set align(horizon)
   - Der Controller ruft eine Funktion im Service auf
@@ -496,6 +499,7 @@
 ]
 
 #slide[
+  #toolbox.register-section([Repository])
   = Speichern der Entity im Repository
   #set align(horizon)
   - `save` Funktion des Repositories erlaubt Speichern einer neuen Entity oder Updated einer vorhandenen
@@ -509,6 +513,7 @@
 ]
 
 #slide[
+  #toolbox.register-section([Response])
   = Rückgabe der neuen Entity
   #set align(horizon)
   - Neu erstelle Entity soll wieder an das Frontend zurückgegeben werden
