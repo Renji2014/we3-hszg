@@ -1,8 +1,8 @@
 #import "../../../template/definitions.typ": *
 
-=== Ablauf einer Anfrage an ein Spring Backend
+=== Überblick und Wiederholung zu Spring Anwendungen
 
-*Kontext der Spring Anwendung*: \
+==== Kontext der Spring Anwendung
 Innerhalb einer Fullstack Anwendung existiert die Spring Anwendung im Backend. 
 Das Frontend stellt Anfragen an das Spring Backend. 
 Das Backend verarbeitet die Anfragen und gibt bei Bedarf Daten an das Frontend zurück.
@@ -93,7 +93,7 @@ public class TodoItem {
 }
 ```
 
-*Beispiel*: Ich frage in der Datenbank alle Todo Items ab, die bis nächste Woche Freitag fertig sein sollen. 5 Todos wurden dabei gefunden. Ich erhalte vom Repository eine Liste mit 5 Elementen. Jedes Element ist dabei eine Instanz der TotoItems Entity, die die Daten des jeweiligen Tabelleneintrages enthält.
+*Beispiel*: Ich frage in der Datenbank alle Todo Items ab, die bis nächste Woche Freitag fertig sein sollen. 5 Todos wurden dabei gefunden. Ich erhalte vom Repository eine Liste mit 5 Elementen. Jedes Element ist dabei eine Instanz der TodoItems Entity, die die Daten des jeweiligen Tabelleneintrages enthält.
 
 *Repository*: \
 Das Repository ist die Schnittstelle zur Datenbank. 
@@ -114,6 +114,10 @@ public interface TodoItemRepository extends JpaReposiroty<TodoItem, Long> {
 
 }
 ```
+
+==== Ablauf einer POST Request in Spring
+
+1. *Request vom Client*
 
 #codly(
   highlights: (
@@ -174,6 +178,7 @@ Vom Frontend kommen folgenden Daten in der Request: \
 }
 ```
 
+2. *Annahme der Request am Controller im Backend*
 Das Spring Backend nimmt diese Request an der passenden Methode im Controller entgegen. Die passende Methode wird dabei wie folgt gefunden.\
 
 Es werden alle Klassen in Betracht gezogen, die eine `@RestController` Annotation besitzen. Danach wird der Pfad in der URL wichtig.
@@ -244,6 +249,12 @@ Für jedes JSON Feld wird dabei eine Variable in der Klasse bevölkert.
   ]
 )
 
+Aus dem JSON Objekt muss nun ein DTO gemacht werden. 
+Das DTO enthält dabei die gleichen Felder wie das JSON Objekt, mit übereinstimmenden Variablennamen. \
+Zu jeder Variable wird nun der Wert des zugehörigen JSON Keys gemapped.
+Damit diese Operation erfolgreich ist, muss das JSON Objekt, welches vom Frontend geschickt wurde, den Spezifikationen des DTOs folgen. 
+Hier bedeutet das einfach gesagt: Die JSON Keys müssen den gleichen Namen haben wie die Variablen in der DTO Klasse.
+
 #let dataPairs = (
   (json: ```json "name": "todoItemName"```, kotlin: ```kotlin val name: String```),
   (json: ```json "description": "newDescription"```, kotlin: ```kotlin val description: String```),
@@ -267,15 +278,31 @@ Für jedes JSON Feld wird dabei eine Variable in der Klasse bevölkert.
   )
 }
 
+Man kann es sich so vorstellen, dass ein Konstruktor aufgerufen wird, der einen Wert pro Feld im JSON objekt enthält und diesen Wert auf die passende Variable anwendet.
+
+```kotlin
+CreateTodoItemDto(
+  name = "todoItemname",
+  description = "newDescription",
+  done = true,
+  created = "2025-10-23T15:06:08.738Z",
+  shouldBeDoneBy = "2025-11-04T08:06:06.297Z"
+)
+```
+
 Dieses DTO wird als Parameter an die Controller Funktion übergeben. 
 Die Controller-Funktion ruft dann eine passende Methode im Service auf und übergibt das DTO. \
 
-Der Service enthält dabei die Logik der Anwendung. 
+*3. Aufrufen der Logik im Service durch den Controller*
+
+Der Service enthält die Logik der Anwendung. 
+In den einfachsten Fällen sind das nur Funktionen, die CRUD Operationen aufrufen, die zu einer Entity gehören.
 Theoretisch könnte dieser Code auch direkt im Controller stehen, aber im Sinne der Ordnung, sollte der Controller nur eine Methode im Service aufrufen. \
 
 Die Methode im Service, die hier benötigt wird, soll ein neues Todo Item erstellen. 
 Damit ein neues Todo Item in der Datenbank gespeichert werden kann, muss das DTO in eine Instanz der Entity umgewandelt werden. 
 Für dieses Umwandeln kommt ein Mapper zum Einsatz.
+
 #figure(
   diagram(
     node-stroke: 1pt,
@@ -383,3 +410,5 @@ transfer-encoding: chunked
   "userId": 1
 }
 ```
+
+Im Frontend kann der JSON Body dann wieder ausgelesen werden, um die Daten in der UI darzustellen.
