@@ -24,3 +24,35 @@
   }
   ```
 ]
+
+#slide[
+  = Methoden im Repository
+  #set align(horizon)
+  - Neue Funktionalitäten können über Methodennamen oder `@Query` hinzugefügt werden
+  ```kotlin
+    @Query(
+      "SELECT t FROM todoitem t WHERE " +
+              "(cast(:id as uuid) IS NULL OR t.id = :id) AND" +
+              "(cast(:name as string) IS NULL OR t.name = :name)"
+    )
+    fun findTodoItemEntityByField(
+        id: Long?,
+        name: String?
+    ): MutableList<TodoItem>
+
+  ```
+]
+
+#slide[
+  = Methoden im Repository
+  #set align(horizon)
+  ```kotlin
+    @Repository
+    interface TodoItemRepository : JpaRepository<TodoItem, Long> {
+      fun findTodoItemsByNameLikeAndIdIs(
+        name: String,
+        id: Long
+      ): MutableList<TodoItem>
+    }
+  ```
+]
