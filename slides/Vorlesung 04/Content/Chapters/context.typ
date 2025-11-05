@@ -5,7 +5,7 @@
   = Kontext einer Spring Anwendung in Fullstack
   #set align(horizon)
   - Spring existiert im Backend
-  - Frontend stellt Anfragen an das Spring Backend
+  - Frontend stellt Anfragen an das Spring-Backend
   - Spring verarbeitet Anfragen vom Frontend
   - Gibt bei Bedarf Daten wieder an das Frontend zurück
 ]
@@ -61,9 +61,9 @@
 #slide[
   = Beispiel: Finanzapp
   #set align(horizon)
-  - Eine Finanzapp erlaubt das Aufteilen von Geld auf Budgets
+  - Eine Finanz-App erlaubt das Aufteilen von Geld auf Budgets
   - Der Nutzer möchte Geld auf ein Budget verschieben
-  - In der App wird das Zielbudget und der Wert festgelegt
+  - In der App werden das Zielbudget und der Wert festgelegt
   - Nach Bestätigung der Eingaben wird eine Anfrage an das Backend geschickt
   - Die Anfrage könnte folgende Informationen enthalten:
     - ID vom Konto
@@ -75,7 +75,7 @@
   = Beispiel: Finanzapp
   #set align(horizon)
   - Im Backend werden mit den IDs Konto und Budget gesucht
-  - Es wird überprüft, ob das Konto genug Mittel hat um den gewünschten Betrag zu verschieben
+  - Es wird überprüft, ob das Konto genug Mittel hat, um den gewünschten Betrag zu verschieben
   - Gutschreiben des Wertes, wenn das Konto genug Geld hat
   - Abzug des Wertes vom Ursprungskonto
   - Neue Werte von Konto und Budget werden an das Frontend geschickt

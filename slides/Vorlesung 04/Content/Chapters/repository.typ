@@ -5,21 +5,21 @@
   = Repository
   #set align(horizon)
   - Schnittstelle zur Datenbank
-  - Erlaubt CRUD Operationen auf der Datenbank
-  - Daten in der Datenbank werden auf Klassen gemapped (ORM)
+  - Erlaubt CRUD-Operationen auf der Datenbank
+  - Daten in der Datenbank werden auf Klassen gemappt (ORM)
   - Jedes Repository kann sich nur um eine Entity kümmern
-  - Repository braucht Info über Typ der Entity und Typen der ID
+  - Repository braucht Information über Typ der Entity und Typen der ID
 
   ```kotlin
   @Repository
-  interface TodoItemRepository : JpaReposiroty<TodoItem, Long> {
+  interface TodoItemRepository : JpaRepository<TodoItem, Long> {
 
   }
   ```
 
   ```java
   @Repository
-  public interface TodoItemRepository extends JpaReposiroty<TodoItem, Long> {
+  public interface TodoItemRepository extends JpaRepository<TodoItem, Long> {
 
   }
   ```

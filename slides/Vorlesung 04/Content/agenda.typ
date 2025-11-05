@@ -6,8 +6,8 @@
   *Wiederholung von Spring*
   - Kontext
   - Komponenten
-  - Ablauf innerhalb der Spring Anwendung
+  - Ablauf innerhalb der Spring-Anwendung
 
   *Seminar*
-  - Spring Anwendung mit User erweitern
+  - Spring-Anwendung mit User erweitern
 ]

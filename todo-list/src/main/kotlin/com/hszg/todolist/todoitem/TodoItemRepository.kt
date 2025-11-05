@@ -25,5 +25,4 @@ interface TodoItemRepository : JpaRepository<TodoItem, Long> {
         created: Date?,
         shouldBeDoneBy: Date?
     ): MutableList<TodoItem>
-
 }

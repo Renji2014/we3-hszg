@@ -38,18 +38,18 @@
       stroke: black,
       [*Name*], [*Type*],
       [id], [Long],
-      [username], [Long],
+      [username], [String],
     )
     #set align(left)
     2. Implementiere die DTOs (Get, Update, Create) und die dazugehörigen Mapper
-    3. Implementiere ein Repository um die User in der Datenbank zu verwalten
+    3. Implementiere ein Repository, um die User in der Datenbank zu verwalten.
   ][
     4. Implementiere einen Service mit Funktionen zum:
     - Erstellen von Usern (POST)
     - Updaten von Usern (UPDATE)
     - Lesen von Usern (GET)
     - Löschen von Usern (DELETE)
-    5. Implementiere einen Controller mit Mappings für die folgenden HTTP Methoden:
+    5. Implementiere einen Controller mit Mappings für die folgenden HTTP-Methoden:
     - GET
     - POST
     - PUT

@@ -3,8 +3,8 @@
 === Überblick und Wiederholung zu Spring Anwendungen
 
 ==== Kontext der Spring Anwendung
-Innerhalb einer Fullstack Anwendung existiert die Spring Anwendung im Backend. 
-Das Frontend stellt Anfragen an das Spring Backend. 
+Innerhalb einer Fullstack-Anwendung existiert die Spring-Anwendung im Backend. 
+Das Frontend stellt Anfragen an das Spring-Backend. 
 Das Backend verarbeitet die Anfragen und gibt bei Bedarf Daten an das Frontend zurück.
 
 #figure(
@@ -51,23 +51,23 @@ Das Backend verarbeitet die Anfragen und gibt bei Bedarf Daten an das Frontend z
   )
 )
 
-*Beispiel*: Ein Nutzer benutzt eine Finanzapp. 
+*Beispiel*: Ein Nutzer benutzt eine Finanz-App. 
 Er möchte einen Teil seines Geldes zu einem Budget hinzufügen. 
 Dafür füllt er in der App zwei Felder aus. 
 Das Zielbudget und die Menge an Geld, die dem Budget zugewiesen werden soll. 
 Nach Bestätigung der Eingaben wird eine Anfrage von der App an das Backend geschickt. 
 Diese Anfrage enthält alle Informationen, die das Backend benötigt, um die Budgetanpassung zu verarbeiten. 
-Dazu gehören zum Beispiel: User ID, Konto ID, Budget ID, Wert.
-All diese Werte werden im Backend genutzt, um in der Datenbank den passenden Nutzer, Konto und Budget zu finden. 
-Danach kann überprüft werden, ob diese Transaktion stattfinden darf und der Wert wird auf das Budget gutgeschrieben. 
-Das Backend kann nun als Antwort auf die Anfrage den neuen Wert des Budgets an das Frontend zurüsckschicken, damit der Nutzer in der App sieht, dass sich der Wert des Budgets angepasst hat.
+Dazu gehören zum Beispiel: User-ID, Konto-ID, Budget-ID, Wert.
+All diese Werte werden im Backend genutzt, um in der Datenbank den passenden Nutzer, das Konto und das Budget zu finden. 
+Danach kann überprüft werden, ob diese Transaktion stattfinden darf, und der Wert wird auf das Budget gutgeschrieben. 
+Das Backend kann nun als Antwort auf die Anfrage den neuen Wert des Budgets an das Frontend zurückschicken, damit der Nutzer in der App sieht, dass sich der Wert des Budgets angepasst hat.
 
 *Entity*: \
 Die Entity ist die Beschreibung eines Tabelleneintrages in der Datenbank. 
 Felder in der Tabelle werden dabei als Variable deklariert. 
 Genauere Definitionen können durch `@Column` festgelegt werden. 
-Jede Entity benötigt außerdem einen Primary Key, der mit der `@Id` Annotation festgelegt werden. 
-Wenn eine Menge an Daten aus dem Table ausgelesen werden, ist jeder Eintrag in der Tabelle eine Entity Instanz. \
+Jede Entity benötigt außerdem einen Primary Key, der mit der `@Id`-Annotation festgelegt werden kann. 
+Wenn eine Menge an Daten aus dem Table ausgelesen wird, ist jeder Eintrag in der Tabelle eine Entity-Instanz. \
 
 ```kotlin
 @Entity(name = "todoitem")
@@ -93,13 +93,13 @@ public class TodoItem {
 }
 ```
 
-*Beispiel*: Ich frage in der Datenbank alle Todo Items ab, die bis nächste Woche Freitag fertig sein sollen. 5 Todos wurden dabei gefunden. Ich erhalte vom Repository eine Liste mit 5 Elementen. Jedes Element ist dabei eine Instanz der TodoItems Entity, die die Daten des jeweiligen Tabelleneintrages enthält.
+*Beispiel*: Ich frage in der Datenbank alle To-do-Items ab, die bis nächste Woche Freitag fertig sein sollen. 5 Todos wurden dabei gefunden. Ich erhalte vom Repository eine Liste mit 5 Elementen. Jedes Element ist dabei eine Instanz der TodoItems-Entity, die die Daten des jeweiligen Tabelleneintrages enthält.
 
 *Repository*: \
 Das Repository ist die Schnittstelle zur Datenbank. 
 Es erlaubt das Erstellen und Suchen von Entities. 
 Ein Repository kann sich immer nur um eine Art von Entity kümmern. 
-Diese Entity wird beim Erstellen des Repositories angegeben, zusammen mit dem Typen der ID.
+Diese Entity wird beim Erstellen des Repositories angegeben, zusammen mit dem Typ der ID.
 
 ```kotlin
 @Repository
@@ -162,11 +162,11 @@ public interface TodoItemRepository extends JpaReposiroty<TodoItem, Long> {
   }
 ```
 
-Es wird eine Anfrage an das Spring Backend gestellt. 
-Vom Frontend kommen folgenden Daten in der Request: \
+Es wird eine Anfrage an das Spring-Backend gestellt. 
+Vom Frontend kommen folgende Daten in der Request: \
 - Eine #text(fill: red, weight: "bold")[POST] Request an die url `http://localhost:8080/todos`
 - Es wird Content in Form von #text(fill: green, weight: "bold")[JSON] mitgeschickt
-- Der Content im Body der Request. Hier werden alle Daten für eine neues Todo Item mitgeschickt
+- Der Content im Body der Request. Hier werden alle Daten für ein neues Todo-Item mitgeschickt.
 
 ```json
 {
@@ -179,9 +179,9 @@ Vom Frontend kommen folgenden Daten in der Request: \
 ```
 
 2. *Annahme der Request am Controller im Backend*
-Das Spring Backend nimmt diese Request an der passenden Methode im Controller entgegen. Die passende Methode wird dabei wie folgt gefunden.\
+Das Spring-Backend nimmt diese Request an der passenden Methode im Controller entgegen. Die passende Methode wird dabei wie folgt gefunden.\
 
-Es werden alle Klassen in Betracht gezogen, die eine `@RestController` Annotation besitzen. Danach wird der Pfad in der URL wichtig.
+Es werden alle Klassen in Betracht gezogen, die eine `@RestController`-Annotation besitzen. Danach wird der Pfad in der URL wichtig.
 
 #codly(
   highlights: (
@@ -192,7 +192,7 @@ Es werden alle Klassen in Betracht gezogen, die eine `@RestController` Annotatio
 http://localhost:8080/todos
 ```
 
-Der passende Controller muss dabei eine `@RequestMapping` Annotation besitzen mit diesem Pfad. Ein Controller, der also wie folgt definiert ist, wird für diese Request genutzt:
+Der passende Controller muss dabei eine `@RequestMapping`-Annotation besitzen mit diesem Pfad. Ein Controller, der also wie folgt definiert ist, wird für diesen Request genutzt:
 
 #codly(
   highlights: (
@@ -207,7 +207,7 @@ class TodoItemController {
 } 
 ```
 
-In diesem Controller muss nun noch die passende Funktion gefunden werden. Da nach `/todos` kein weiterer Pfad kommt, wird hier nur die HTTP Methode betrachtet. Es handelt sich hier um eine POST Request. Die passende Methode muss also mit `@PostMapping` auf die POST Methode gemapped sein. In dem Controller wird also die Methode genutzt, die wie folgt definiert ist:
+In diesem Controller muss nun noch die passende Funktion gefunden werden. Da nach `/todos` kein weiterer Pfad kommt, wird hier nur die HTTP-Methode betrachtet. Es handelt sich hier um eine POST-Request. Die passende Methode muss also mit `@PostMapping` auf die POST-Methode gemappt sein. In dem Controller wird also die Methode genutzt, die wie folgt definiert ist:
 
 ```kotlin
 @PostMapping
@@ -219,9 +219,9 @@ fun createTotoItem(
 }
 ```
 
-Diese Methode wird nun aufgerufen. Dabei nimmt sie ein DTO entgegen. Dieses DTO ist, praktisch gesehen, der JSON Body der Request in Form eines Objekts in Java/Kotlin. \
+Diese Methode wird nun aufgerufen. Dabei nimmt sie ein DTO entgegen. Dieses DTO ist, praktisch gesehen, der JSON-Body der Request in Form eines Objekts in Java/Kotlin. \
 
-Für jedes JSON Feld wird dabei eine Variable in der Klasse bevölkert.
+Für jedes JSON-Feld wird dabei eine Variable in der Klasse bevölkert.
 
 #grid(
   columns: (1fr, 1fr),
@@ -249,11 +249,11 @@ Für jedes JSON Feld wird dabei eine Variable in der Klasse bevölkert.
   ]
 )
 
-Aus dem JSON Objekt muss nun ein DTO gemacht werden. 
-Das DTO enthält dabei die gleichen Felder wie das JSON Objekt, mit übereinstimmenden Variablennamen. \
-Zu jeder Variable wird nun der Wert des zugehörigen JSON Keys gemapped.
-Damit diese Operation erfolgreich ist, muss das JSON Objekt, welches vom Frontend geschickt wurde, den Spezifikationen des DTOs folgen. 
-Hier bedeutet das einfach gesagt: Die JSON Keys müssen den gleichen Namen haben wie die Variablen in der DTO Klasse.
+Aus dem JSON-Objekt muss nun ein DTO gemacht werden. 
+Das DTO enthält dabei die gleichen Felder wie das JSON-Objekt, mit übereinstimmenden Variablennamen. \
+Zu jeder Variable wird jetzt der Wert des zugehörigen JSON-Keys gemappt.
+Damit diese Operation erfolgreich ist, muss das JSON-Objekt, welches vom Frontend geschickt wurde, den Spezifikationen des DTOs folgen. 
+Hier bedeutet das einfach gesagt: Die JSON-Keys müssen den gleichen Namen haben wie die Variablen in der DTO-Klasse.
 
 #let dataPairs = (
   (json: ```json "name": "todoItemName"```, kotlin: ```kotlin val name: String```),
@@ -278,7 +278,7 @@ Hier bedeutet das einfach gesagt: Die JSON Keys müssen den gleichen Namen haben
   )
 }
 
-Man kann es sich so vorstellen, dass ein Konstruktor aufgerufen wird, der einen Wert pro Feld im JSON objekt enthält und diesen Wert auf die passende Variable anwendet.
+Man kann es sich so vorstellen, dass ein Konstruktor aufgerufen wird, der einen Wert pro Feld im JSON-Objekt enthält und diesen Wert auf die passende Variable anwendet.
 
 ```kotlin
 CreateTodoItemDto(
@@ -290,17 +290,17 @@ CreateTodoItemDto(
 )
 ```
 
-Dieses DTO wird als Parameter an die Controller Funktion übergeben. 
+Dieses DTO wird als Parameter an die Controller-Funktion übergeben. 
 Die Controller-Funktion ruft dann eine passende Methode im Service auf und übergibt das DTO. \
 
 *3. Aufrufen der Logik im Service durch den Controller*
 
 Der Service enthält die Logik der Anwendung. 
-In den einfachsten Fällen sind das nur Funktionen, die CRUD Operationen aufrufen, die zu einer Entity gehören.
+In den einfachsten Fällen sind das nur Funktionen, die CRUD-Operationen aufrufen, die zu einer Entity gehören.
 Theoretisch könnte dieser Code auch direkt im Controller stehen, aber im Sinne der Ordnung, sollte der Controller nur eine Methode im Service aufrufen. \
 
-Die Methode im Service, die hier benötigt wird, soll ein neues Todo Item erstellen. 
-Damit ein neues Todo Item in der Datenbank gespeichert werden kann, muss das DTO in eine Instanz der Entity umgewandelt werden. 
+Die Methode im Service, die hier benötigt wird, soll ein neues Todo-Item erstellen. 
+Damit ein neues Todo-Item in der Datenbank gespeichert werden kann, muss das DTO in eine Instanz der Entity umgewandelt werden. 
 Für dieses Umwandeln kommt ein Mapper zum Einsatz.
 
 #figure(
@@ -336,15 +336,15 @@ Dieser Mapper überführt alle Felder aus dem DTO in die passenden Felder der En
   }
 ```
 
-Diese Mapper Funktion wird im Service aufgerufen, um eine Instanz des neuen Todo Items zu erhalten.
+Diese Mapper-Funktion wird im Service aufgerufen, um eine Instanz des neuen Todo-Items zu erhalten.
 
 ```kotlin 
 val newTodoItem = fromCreateTodoItemDto(createTodoItemDto)
 ```
 
-Damit diese neue Entity in der Datenbank gespeichert werden kann, wird die `save` Funktion im Repository aufgerufen. 
+Damit diese neue Entity in der Datenbank gespeichert werden kann, wird die `save`-Funktion im Repository aufgerufen. 
 Diese Funktion kann entweder einen neuen Eintrag in der Datenbank anlegen oder einen vorhandenen updaten. 
-Welche dieser Funktionen aufgerufen wird entscheided die übergebene Entity. 
+Welche dieser Funktionen aufgerufen wird, entscheidet die übergebene Entity. 
 - Wenn die ID in der Entity `null` ist, wird ein neuer Eintrag in der Datenbank angelegt. 
 - Hat die ID einen definierten Wert, wird in der Datenbank der Eintrag mit der passenden ID gesucht und mit den neuen Werten überschrieben.
 
@@ -352,7 +352,7 @@ Welche dieser Funktionen aufgerufen wird entscheided die übergebene Entity.
 val savedTodoItem = todoItemRepository.save(newTodoItem)
 ```
 
-Nach einer POST Request soll die neu erstellte Entity wieder in einer Response an das Frontend geschickt werden. 
+Nach einer POST-Request soll die neu erstellte Entity wieder in einer Response an das Frontend geschickt werden. 
 Dazu muss die Entity in ein `GetTodoItemDto` überführt werden.
 
 #figure(
@@ -373,7 +373,7 @@ Dazu muss die Entity in ein `GetTodoItemDto` überführt werden.
 )
 
 Dieses DTO wird an den Controller übergeben. 
-Der Controller gibt das DTO als JSON Objekt in der Response an das Frontend zurück.
+Der Controller gibt das DTO als JSON-Objekt in der Response an das Frontend zurück.
 
 #codly(
   annotations: (
@@ -411,4 +411,4 @@ transfer-encoding: chunked
 }
 ```
 
-Im Frontend kann der JSON Body dann wieder ausgelesen werden, um die Daten in der UI darzustellen.
+Im Frontend kann der JSON-Body dann wieder ausgelesen werden, um die Daten in der UI darzustellen.

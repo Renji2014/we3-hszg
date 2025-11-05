@@ -281,7 +281,7 @@
 #slide[
   = Finden des Passenden Controllers
   #set align(horizon)
-  - Die Anfrage muss auf einen Controller und danach auf eine Methode gemapped werden
+  - Die Anfrage muss auf einen Controller und danach auf eine Methode gemappt werden.
   - Entscheidung läuft wie folgt ab:
   - Jede Klasse mit `@RestController` wird betrachtet
   - URL wird mit den `@RequestMappings` der Controller abgeglichen
@@ -293,7 +293,7 @@
   ```
     http://localhost:8080/todos
   ```
-  - Der Controller mit dem passenden Request Mapping wird für die Anfrage genutzt
+  - Der Controller mit dem passenden Request-Mapping wird für die Anfrage genutzt.
   #codly(
     highlights: (
       (line: 2, start: 18, end: 23, fill: red),
@@ -358,8 +358,8 @@
   = Controller Methode DTO
   #set align(horizon)
   - Die Methode nimmt ein DTO entgegen
-  - Das DTO ist eine Repräsentation des JSON Bodys in Form eines Objekts in Kotlin/Java
-  - Jede Variable im DTO enthält dabei ein Datenfeld aus dem JSON Body
+  - Das DTO ist eine Repräsentation des JSON-Bodys in Form eines Objekts in Kotlin/Java
+  - Jede Variable im DTO enthält dabei ein Datenfeld aus dem JSON-Body
   #grid(
     columns: (1fr, 1fr),
     inset: 5pt,
@@ -390,9 +390,9 @@
 #slide[
   = Controller Methode DTO
   #set align(horizon)
-  - Das JSON Objekt muss in das DTO überführt werden
-  - Zu jeder Variable im DTO wird der passende Wert aus dem JSON Body eingetragen
-  - Folgende Spezifikation ist dabei wichtig: Die Keys in dem JSON Objekt müssen den gleichen Namen haben wie die Variablen im DTO
+  - Das JSON-Objekt muss in das DTO überführt werden
+  - Zu jeder Variable im DTO wird der passende Wert aus dem JSON-Body eingetragen
+  - Folgende Spezifikation ist dabei wichtig: Die Keys in dem JSON-Objekt müssen den gleichen Namen haben wie die Variablen im DTO
 
   #let dataPairs = (
     (json: ```json "name": "todoItemName"```, kotlin: ```kotlin val name: String```),
@@ -441,15 +441,15 @@
   #set align(horizon)
   - Der Controller ruft eine Funktion im Service auf
   - Service enthält Logik der Anwendung
-  - Im einfachsten Fall: Funktionen für die CRUD Operationen bzw. für die HTTP Methoden
+  - Im einfachsten Fall: Funktionen für die CRUD‑Operationen bzw. für die HTTP‑Methoden
   - Könnte auch direkt im Controller stehen aber Separierung ist besser
-  - Methode soll hier ein neues Todo Item erstellen
+  - Methode soll hier ein neues Todo-Item erstellen
 
   *Folgende Schritte:*
   1. Umwandlung des DTOs zu einer Entity (Mapper)
   2. Speichern der Entity im Repository
-  3. Umwandeln der neuen Entity in ein Get DTO (Mapper)
-  4. Rückgabe des Get DTOs an den Controller und zum Frontend
+  3. Umwandeln der neuen Entity in ein Get-DTO (Mapper)
+  4. Rückgabe des Get‑DTOs an den Controller und zum Frontend
 ]
 
 #slide[
@@ -505,7 +505,7 @@
   - `save` Funktion des Repositories erlaubt Speichern einer neuen Entity oder Updated einer vorhandenen
   *Welche Funktion wird genutzt?*:
   - Wenn die ID der Entity `null` ist, wird ein neuer Eintrag in der Datenbank erstellt
-  - Wenn die ID der Entity einen Wert hat, wird die vorhandene Entity, mit dieser ID, geupdated
+  - Wenn die ID der Entity einen Wert hat, wird die vorhandene Entity, mit dieser ID, geupdatet
 
   ```kotlin
   val savedTodoItem = todoItemRepository.save(newTodoItem)
@@ -516,8 +516,8 @@
   #toolbox.register-section([Response])
   = Rückgabe der neuen Entity
   #set align(horizon)
-  - Neu erstelle Entity soll wieder an das Frontend zurückgegeben werden
-  - `save` Methode gibt die neue Entity zurück
+  - Neu erstellte Entity soll wieder an das Frontend zurückgegeben werden
+  - `save`-Methode gibt die neue Entity zurück
   - Es muss diese Instanz der Entity genutzt werden, da diese die ID enthält
   - Entity muss in ein DTO überführt werden - `GetTodoItemDto`
   #figure(
@@ -537,7 +537,7 @@
     )
   )
   - DTO wird an den Controller übergeben
-  - Controller gibt das DTO als JSON Objekt im Body der Response zurück
+  - Controller gibt das DTO als JSON-Objekt im Body der Response zurück
 ]
 
 #slide[

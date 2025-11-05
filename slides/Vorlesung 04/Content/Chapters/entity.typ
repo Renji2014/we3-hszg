@@ -6,9 +6,9 @@
   #set align(horizon)
   - Eine Klasse, die mit `@Entity` annotiert ist
   - Beschreibung eines Tabelleneintrags in einer Datenbank
-  - Jedes Feld in der Tabelle wird als Variable der Entity Klasse erstellt
+  - Jedes Feld in der Tabelle wird als Variable der Entity-Klasse erstellt.
   - Felder können genauer durch `@Column` definiert werden
-  - Jede Entity benötigt einen Primary Key, der durch `@Id` markiert wird
+  - Jede Entity benötigt einen Primary Key, der durch `@Id` markiert wird.
 ]
 
 #slide[
@@ -48,8 +48,8 @@
 #slide[
   = Entities
   #set align(horizon)
-  - Wenn aus der Datenbank mehrere Einträge aus einer Tabelle ausgelesen werden, wird eine Liste an passenden Entity Instanzen zurückgegeben
-  - Jede Instanz enthält die Daten ihres jeweils passenden Tabellen Eintrags
+  - Wenn aus der Datenbank mehrere Einträge aus einer Tabelle ausgelesen werden, wird eine Liste an passenden Entity-Instanzen zurückgegeben.
+  - Jede Instanz enthält die Daten ihres jeweils passenden Tabelleneintrags.
   
   *Beispiel:* Abfrage von Todo Items
   - Es wird nach allen Todos vor einem bestimmten Datum gesucht
