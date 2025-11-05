@@ -7,4 +7,7 @@
   - Kontext
   - Komponenten
   - Ablauf innerhalb der Spring Anwendung
+
+  *Seminar*
+  - Spring Anwendung mit User erweitern
 ]
