@@ -24,6 +24,7 @@
 ]
 
 #slide[
+  #toolbox.register-section([Seminar])
   = Seminar
   == Implementation eines Users in der Spring Anwendung
   #set align(horizon)
