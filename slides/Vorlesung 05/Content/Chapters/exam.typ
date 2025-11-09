@@ -2,11 +2,11 @@
 #import "../../Components/chapter_titile_slide.typ": chapter-title-slide
 
 #chapter-title-slide(
-  section-name: [Spring Data JPA],
-  title-text: "Spring Data JPA"
+  section-name: [Prüfung],
+  title-text: "Prüfung"
 )
 
 #slide[
-  = Spring Data JPA
+  = Prüfung
   #set align(horizon)
 ]

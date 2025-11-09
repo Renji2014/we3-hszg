@@ -7,3 +7,5 @@
 #include "Chapters/config.typ"
 
 #include "Chapters/docker.typ"
+
+#include "Chapters/exam.typ"
