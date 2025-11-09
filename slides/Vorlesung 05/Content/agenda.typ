@@ -6,7 +6,7 @@
   *Vorlesung*
   - Spring Data JPA
   - Konfiguration von Spring Anwendungen
-
+  - Einführung in Docker
   *Seminar*
   - Relationen zwischen Entities
   - Konfiguration der Spring Anwendung
