@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres
+    container_name: todo_list_db
+    environment:
+      - POSTGRES_USER=todo
+      - POSTGRES_PASSWORD=todo
+      - POSTGRES_DB=todo_db
+    networks:
+      - todo_network
+    ports:
+      - "5432:5432"
+
+networks:
+  todo_network:
+    driver: bridge
