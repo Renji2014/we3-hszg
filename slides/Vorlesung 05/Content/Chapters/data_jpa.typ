@@ -1,9 +1,8 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": chapter-title-slide, subchapter-title-slide
 
 #chapter-title-slide(
-  section-name: [Spring Data JPA],
-  title-text: "Spring Data JPA"
+  section-name: [Spring Data JPA]
 )
 
 #slide[
@@ -74,13 +73,7 @@
   - `delete` zum Löschen
 ]
 
-#slide[
-  =
-  #set align(horizon + center)
-  #text(weight: "bold", size: 35pt)[
-    Queries
-  ]
-]
+#subchapter-title-slide(section-name: [Queries])
 
 #slide[
   = Query Methoden
@@ -221,13 +214,7 @@
   - Native Queries
 ]
 
-#slide[
-  =
-  #set align(horizon + center)
-  #text(weight: "bold", size: 35pt)[
-    Sorting
-  ]
-]
+#subchapter-title-slide(section-name: [Sorting])
 
 #slide[
   = Sorting

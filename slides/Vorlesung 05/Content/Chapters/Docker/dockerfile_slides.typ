@@ -1,5 +1,5 @@
 #import "../../../Template/definitions.typ": *
-#import "../../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../../Template/template.typ": chapter-title-slide, subchapter-title-slide
 
 #let example_dockerfile = [
   ```Dockerfile
@@ -11,8 +11,9 @@
   ```
 ]
 
+#subchapter-title-slide(section-name: [Dockerfile])
+
 #slide[
-  #toolbox.register-section([Dockerfile])
   = Dockerfile
   #set align(horizon + center)
   #example_dockerfile

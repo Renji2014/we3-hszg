@@ -1,12 +1,12 @@
 #import "../../Template/definitions.typ": *
-#import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Template/template.typ": chapter-title-slide
 
 #chapter-title-slide(
-  section-name: [Konfiguration],
-  title-text: "Konfiguration einer Spring Anwendung"
+  section-name: [Konfiguration]
 )
 
 #slide[
+  //TODO: More Content for Configuration
   = Konfiguration einer Spring Anwendung
   #set align(horizon)
   - Konfiguration einer Spring Anwendung kann über eine `application.properties` oder `application.yaml` geschehen
