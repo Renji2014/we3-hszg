@@ -9,6 +9,8 @@
 #slide[
   = Konfiguration einer Spring Anwendung
   #set align(horizon)
+  - Konfiguration einer Spring Anwendung kann über eine `application.properties` oder `application.yaml` geschehen
+  - 
 ]
 
 #slide[

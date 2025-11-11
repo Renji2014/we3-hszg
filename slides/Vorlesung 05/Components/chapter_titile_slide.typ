@@ -8,6 +8,6 @@
     #toolbox.register-section([#section-name])
     = 
     #set align(horizon + center)
-    #text(weight: "bold", size: 25pt)[#title-text]
+    #text(weight: "bold", size: 35pt)[#title-text]
   ]
 ]

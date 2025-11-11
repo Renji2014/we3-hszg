@@ -291,3 +291,13 @@ jpaWithSpringBoot:
   type: Web
   title: "JPA with Spring Boot: A Comprehensive Guide with Examples"
   url: https://medium.com/@bshiramagond/jpa-with-spring-boot-a-comprehensive-guide-with-examples-e07da6f3d385
+
+jpaQueryCreation:
+  type: Web
+  title: Query Creation
+  url: https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation
+
+jpaSorting:
+  type: Web
+  title: Using Sort
+  url: https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.sorting
