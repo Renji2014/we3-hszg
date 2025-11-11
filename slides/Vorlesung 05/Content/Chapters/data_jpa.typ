@@ -252,9 +252,9 @@
   #codly(
     highlighted-lines: (
       (1, green.lighten(70%)),
-      (3, red.lighten(70%)),
+      (2, red.lighten(70%)),
+      (3, green.lighten(70%)),
       (4, green.lighten(70%)),
-      (6, green.lighten(70%)),
     )
   )
   ```java

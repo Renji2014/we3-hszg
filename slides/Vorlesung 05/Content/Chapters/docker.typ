@@ -6,11 +6,7 @@
   title-text: "Einführung in Docker"
 )
 
-#slide[
-  #toolbox.register-section([Dockerfile])
-  = Dockerfile
-  #set align(horizon + center)
-]
+#include "Docker/dockerfile_slides.typ"
 
 #slide[
   #toolbox.register-section([Compose])
