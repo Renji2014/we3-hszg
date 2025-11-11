@@ -1,10 +1,17 @@
 #import "../../Template/definitions.typ": *
 #import "../../Components/chapter_titile_slide.typ": chapter-title-slide
+#import "../../Components/docker-diagram.typ": docker_diagram
 
 #chapter-title-slide(
   section-name: [Docker],
   title-text: "Einführung in Docker"
 )
+
+#slide[
+  = Docker
+  #set align(horizon + center)
+  #docker_diagram
+]
 
 #include "Docker/dockerfile_slides.typ"
 
