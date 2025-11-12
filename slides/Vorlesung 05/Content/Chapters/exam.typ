@@ -6,6 +6,23 @@
 )
 
 #slide[
+  = Projekt
+  #set align(horizon)
+  - Fullstack Anwendung
+  - Backend REST API mit Frontend
+  - Alles ausführbar über Containerization
+  - Datenbank zum Speichern der Daten
+  - Backend sollte enhalten:
+    - Unit Tests (keine 100% Abdeckung, mehr Kompetenz zeigen)
+    - API Endpunkte die den HTTP Standards entsprechen
+    - Response Codes
+    - Error Handling
+  - Frontend:
+    - Brauchbare UI
+    - Abdeckung der API Endpunkte
+]
+
+#slide[
   = Prüfung
   #set align(horizon)
   Zwei Bestandteile:
