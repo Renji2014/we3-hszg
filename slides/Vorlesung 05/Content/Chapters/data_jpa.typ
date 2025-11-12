@@ -140,15 +140,19 @@
 
 #slide[
   = JPA Named Queries
-  == Interfaces mit Methodennamen
+  == XML Queries
   #set align(horizon)
-  Named Queries können in Interfaces als Funktionen deklariert werden.
+  Queries können über XML in `org.xml` in `META-INF` 
 
+  ```xml
+  <named-query name="User.findByLastname">
+    <query>select u from User u where u.lastname = ?1</query>
+  </named-query>
+  ```
+  Im Interface müssen diese Named Queries dann spezifiert werden.
   ```java
   public interface UserRepository extends JpaRepository<User, Long> {
-
     List<User> findByLastname(String lastname);
-
     User findByEmailAddress(String emailAddress);
   }
   ```
@@ -190,19 +194,6 @@
   ```
 
   Hier würde die `findByEmailAddress` Funktion im Interface in `userRepository.java` aufgerufen werden. 
-]
-
-#slide[
-  = JPA Named Queries
-  == XML Queries
-  #set align(horizon)
-  Queries können über XML in `org.xml` in `META-INF` 
-
-  ```xml
-  <named-query name="User.findByLastname">
-    <query>select u from User u where u.lastname = ?1</query>
-  </named-query>
-  ```
 ]
 
 #slide[

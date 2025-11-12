@@ -5,13 +5,13 @@
   section-name: [Konfiguration]
 )
 
-#slide[
-  //TODO: More Content for Configuration
-  = Konfiguration einer Spring Anwendung
-  #set align(horizon)
-  - Konfiguration einer Spring Anwendung kann über eine `application.properties` oder `application.yaml` geschehen
-  - 
-]
+// #slide[
+//   //TODO: More Content for Configuration
+//   = Konfiguration einer Spring Anwendung
+//   #set align(horizon)
+//   - Konfiguration einer Spring Anwendung kann über eine `application.properties` oder `application.yaml` geschehen
+//   - 
+// ]
 
 #slide[
   = YAML File
